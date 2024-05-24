@@ -1,0 +1,16 @@
+{
+  "name": "play-http-server",
+  "version": "1.0.0",
+  "description": "node testing native stuff maan http server",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "IMxSuhasTheBoy",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
