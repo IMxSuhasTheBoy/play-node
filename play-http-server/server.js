@@ -1,5 +1,9 @@
 import http from "http";
-const PORT = 8000;
+import config from "config";
+
+// const PORT = 8080;
+// const PORT = process.env.PORT;
+const PORT = config.get("PORT");
 
 const server = http.createServer((req, res) => {
   /** // res.setHeader("Content-Type", "text/plain");
