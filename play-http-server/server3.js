@@ -52,6 +52,24 @@ const getUserByIdHandler = (req, res) => {
   res.end();
 };
 
+//TODO: route handler for POST /api/users
+const createUserHandler = (req, res) => {
+  let body = "";
+  //listen to data event
+  req.on("data", (chunk) => {
+    body += chunk.toString();
+  });
+
+  req.on("end", () => {
+    const newUser = JSON.parse(body);
+    console.log("json newUser:", newUser);
+    users.push(newUser);
+    res.statusCode = 201;
+    res.write(JSON.stringify(newUser));
+    res.end();
+  });
+};
+
 //TODO: Not found handler
 const notFoundHandler = (req, res) => {
   res.statusCode = 404;
@@ -69,6 +87,8 @@ const server = createServer((req, res) => {
         req.url.match(/\/api\/users\/([0-9]+)/)
       ) {
         getUserByIdHandler(req, res);
+      } else if (req.method === "POST" && req.url === "/api/users") {
+        createUserHandler(req, res);
       } else {
         notFoundHandler(req, res);
       }
