@@ -5,8 +5,8 @@
   "main": "server2.js",
   "type": "module",
   "scripts": {
-    "start": "node server2.js",
-    "dev": "nodemon --env-file=.env server2.js"
+    "start": "node server1.js",
+    "dev": "nodemon --env-file=.env server3.js"
   },
   "author": "IMxSuhasTheBoy",
   "license": "ISC",
